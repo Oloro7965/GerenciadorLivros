@@ -13,6 +13,7 @@ namespace GerenciadorLivros.application.Services.interfaces
         List<UserViewModel> Get(string query);
         UserViewModel GetById(Guid id);
         Guid Create(NewUserInputModel UserInputModel);
+        //Guid CreateAvaliation(NewAvaliationInputModel AvaliationInputModel);
         void Delete(Guid id);
     }
 }

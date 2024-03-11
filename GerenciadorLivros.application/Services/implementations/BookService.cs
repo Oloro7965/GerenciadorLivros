@@ -25,7 +25,14 @@ namespace GerenciadorLivros.application.Services.implementations
             _dbContext.Books.Add(book);
             return book.Id;
         }
-
+        public Guid CreateAvaliation(Guid BookId, NewAvaliationInputModel AvaliationInputModel)
+        {
+            var avaliation = new Avaliation(AvaliationInputModel.Rating, AvaliationInputModel.Description,
+                AvaliationInputModel.UserId,BookId);
+            var book = _dbContext.Books.SingleOrDefault(b=>b.Id==BookId);
+            book.CreateAvaliation(avaliation.Rating,avaliation.Description,avaliation.UserId);
+            return avaliation.Id;
+        }
         public void Delete(Guid id)
         {
             var book= _dbContext.Books.FirstOrDefault(x => x.Id==id);
@@ -38,8 +45,8 @@ namespace GerenciadorLivros.application.Services.implementations
 
         public List<BookViewModel> Get(string query)
         {
-            var books = _dbContext.Books;
-            var bookViewModel = books.Select(b => new BookViewModel(b.Title,b.Description,b.ISBN,b.Autor,b.Editor,b.PublishedYear,b.PagesQuantity))
+            var books = _dbContext.Books.Where(b=>b.IsDeleted==false);
+            var bookViewModel = books.Select(b => new BookViewModel(b.Title,b.Description,b.ISBN,b.Autor,b.Editor,b.PublishedYear,b.PagesQuantity,b.Avaliations))
                 .ToList();
             return bookViewModel;
         }
@@ -49,7 +56,7 @@ namespace GerenciadorLivros.application.Services.implementations
             var book = _dbContext.Books.FirstOrDefault(b=>b.Id==id);
             var bookDetailViewModel = new BookViewModel(book.Title, book.Description, book.ISBN,
                 book.Autor, book.Editor, book.PublishedYear
-                , book.PagesQuantity);
+                , book.PagesQuantity,book.Avaliations);
             return bookDetailViewModel;
         }
 

@@ -24,7 +24,10 @@ namespace GerenciadorLivros.application.Services.implementations
             _dbContext.Users.Add(user);
             return user.Id;
         }
-
+        //public Guid CreateAvaliation(NewAvaliationInputModel AvaliationInputModel)
+        //{
+            //var avaliation= new Avaliation(AvaliationInputModel)
+        //}
         public void Delete(Guid id)
         {
             var user=_dbContext.Users.FirstOrDefault(x => x.Id == id);
@@ -33,7 +36,7 @@ namespace GerenciadorLivros.application.Services.implementations
 
         public List<UserViewModel> Get(string query)
         {
-            var users = _dbContext.Users;
+            var users = _dbContext.Users.Where(u => u.IsDeleted.Equals(false));
             var usersViewModel = users.Select(b => new UserViewModel(b.Name 
                 ,b.Email))
                 .ToList();

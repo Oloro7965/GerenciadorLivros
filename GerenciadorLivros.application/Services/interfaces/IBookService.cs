@@ -13,8 +13,8 @@ namespace GerenciadorLivros.application.Services.interfaces
         List<BookViewModel> Get(string query);
         BookViewModel GetById(Guid id);
         Guid Create(NewBookInputModel BookInputModel);
+        Guid CreateAvaliation(Guid BookId,NewAvaliationInputModel AvaliationInputModel);
         void Update(BookUpdateInputModel UpdateBookModel);
         void Delete(Guid id);
-
     }
 }

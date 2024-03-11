@@ -1,9 +1,7 @@
 ﻿namespace GerenciadorLivros.Domain.Enums
 {
-    public class EBookGender
+    public enum EBookGender
     {
-        public enum BookGender
-        {
             Fiction,
             Action,
             Romance,
@@ -16,6 +14,5 @@
             Covers,
             mystery,
             historicalFiction
-        }
     }
 }

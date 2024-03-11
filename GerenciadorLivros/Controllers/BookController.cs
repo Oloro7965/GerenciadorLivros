@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GerenciadorLivros.Controllers
 {
     [Route("api/Book")]
+    [ApiController]
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
@@ -15,33 +16,46 @@ namespace GerenciadorLivros.Controllers
         {
             _bookService = bookService;
         }
+
         [HttpGet]
-        public IActionResult Get(string query)
+        public IActionResult Get(string query = "")
         {
             var books=_bookService.Get(query);
             return Ok(books);
         }
-        [HttpGet("id")]
+
+        [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
             var book= _bookService.GetById(id);
             return Ok(book);
         }
+
         [HttpPost]
-        public IActionResult Post([FromBody] NewBookInputModel createBookModel)
+        public IActionResult Post( NewBookInputModel createBookModel)
         {
             var bookId=_bookService.Create(createBookModel);
             return CreatedAtAction(nameof(GetById), new { id = bookId }, createBookModel);
         }
-        [HttpPut("id")]
-        public IActionResult Put(Guid id,[FromBody] BookUpdateInputModel updateBookModel)
+
+        [HttpPost("{id}/Avaliations")]
+        public IActionResult CreateAvaliation(Guid id,NewAvaliationInputModel AvaliationInputModel)
+        {
+            var Avaliation = _bookService.CreateAvaliation(id,AvaliationInputModel); 
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(Guid id,BookUpdateInputModel updateBookModel)
         {
             //var book=_bookService.GetById(id);
             //book.Upda
             //_bookService.Update(BookUpdateInputModel);
+            _bookService.Update(updateBookModel);
             return Ok();
         }
-        [HttpDelete("id")]
+
+        [HttpDelete("{id}")]
         public IActionResult DeleteById(Guid id)
         {
             _bookService.Delete(id);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GerenciadorLivros.Domain.Entitites;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace GerenciadorLivros.application.ViewModel
 {
     public class BookViewModel
     {
-        public BookViewModel(string title, string description, string iSBN, string autor, string editor, int publishedYear, int pagesQuantity)
+        public BookViewModel(string title, string description, string iSBN, string autor, string editor, int publishedYear, int pagesQuantity,List<Avaliation> avaliations)
         {
             Title = title;
             Description = description;
@@ -16,7 +17,8 @@ namespace GerenciadorLivros.application.ViewModel
             Autor = autor;
             Editor = editor;
             PublishedYear = publishedYear;
-            this.pagesQuantity = pagesQuantity;
+            PagesQuantity = pagesQuantity;
+            Avaliations = avaliations;
         }
 
         public string Title { get; private set; }
@@ -30,6 +32,7 @@ namespace GerenciadorLivros.application.ViewModel
         public string Editor { get; private set; }
 
         public int PublishedYear { get; private set; }
-        public int pagesQuantity { get; private set; }
+        public int PagesQuantity { get; private set; }
+        public List<Avaliation> Avaliations { get; private set; }
     }
 }

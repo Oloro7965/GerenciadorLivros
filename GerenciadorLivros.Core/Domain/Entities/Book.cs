@@ -19,15 +19,15 @@ namespace GerenciadorLivros.Domain.Entitites
         
         public int PublishedYear { get; private set; }
         public EBookGender BookGender { get; private set; }
-        public int PagesQuantity { get; set; }
+        public int PagesQuantity { get; private set; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; private set; }
 
-        public decimal TotalRating { get; set; }
+        public decimal TotalRating { get; private set; }
 
-        public byte BookCape { get; set; }
+        public byte BookCape { get; private set; }
 
-        public List<Avaliation> Avaliations { get; set; }
+        public List<Avaliation> Avaliations { get; private set; }
 
         public bool IsDeleted { get; private set; }
         public Book() { }
@@ -48,6 +48,11 @@ namespace GerenciadorLivros.Domain.Entitites
         public void Update(string description)
         {
             Description = description;
+        }
+        public void CreateAvaliation(int rating,string description,Guid userId)
+        {
+            var Avaliation=new Avaliation(rating,description,userId,Id);
+            Avaliations.Add(Avaliation);
         }
         public void Delete()
         {

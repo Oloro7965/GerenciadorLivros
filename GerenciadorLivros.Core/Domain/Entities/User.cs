@@ -7,9 +7,9 @@
         public string Email { get; private set; }
 
         public string Name { get; private set; }
-        public bool IsDeleted { get; set; }
 
         public List<Avaliation> UserAvaliations { get; private set; }
+        public bool IsDeleted { get; private set; }
 
         public User()
         {
@@ -23,8 +23,7 @@
             UserAvaliations = new List<Avaliation>();
             IsDeleted = false;
         }
-        public void Delete()
-        {
+        public void Delete() {
             IsDeleted = true;
         }
     }
