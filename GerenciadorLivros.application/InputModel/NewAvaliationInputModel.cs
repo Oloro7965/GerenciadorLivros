@@ -13,15 +13,17 @@ namespace GerenciadorLivros.application.InputModel
 
         public Guid UserId { get; private set; }
 
-        public DateTime? StartedDate { get; private set; }
+        public DateTime StartedDate { get; private set; }
 
-        public DateTime? FinishedDate { get; private set; }
+        public DateTime FinishedDate { get; private set; }
 
-        public NewAvaliationInputModel(int rating, string description, Guid userId)
+        public NewAvaliationInputModel(int rating, string description, Guid userId,DateTime startedDate,DateTime finishedDate)
         {
             Rating = rating;
             Description = description;
             UserId = userId;
+            StartedDate = startedDate;
+            FinishedDate = finishedDate;
         }
     }
 }

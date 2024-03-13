@@ -2,24 +2,24 @@
 {
     public class Avaliation
     {
-        public Guid Id { get; set; }
+        public Guid Id { get;private set; }
 
-        public int Rating { get; set; }
+        public int Rating { get; private set; }
 
-        public string Description { get; set; }
+        public string Description { get;private set; }
 
-        public Guid UserId { get; set; }
+        public Guid UserId { get; private set; }
 
-        public Guid BookId { get; set; }
+        public Guid BookId { get; private set; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; private set; }
 
-        public DateTime StartedDate { get; set; }
+        public DateTime StartedDate { get;private set; }
 
-        public DateTime FinishedDate { get; set; }
+        public DateTime FinishedDate { get;private set; }
 
         public Avaliation() { }
-        public Avaliation(int rating, string description, Guid userId, Guid bookId)
+        public Avaliation(int rating, string description, Guid userId, Guid bookId,DateTime startedDate,DateTime finishedDate)
         {
             Id=Guid.NewGuid();
             Rating = rating;
@@ -27,6 +27,8 @@
             UserId = userId;
             BookId = bookId;
             CreatedDate = DateTime.Now;
+            StartedDate = startedDate;
+            FinishedDate = finishedDate;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace GerenciadorLivros.application.ViewModel
 {
     public class BookViewModel
     {
-        public BookViewModel(string title, string description, string iSBN, string autor, string editor, int publishedYear, int pagesQuantity,List<Avaliation> avaliations)
+        public BookViewModel(string title, string description, string iSBN, string autor, string editor, int publishedYear, int pagesQuantity,List<Avaliation> avaliations,decimal totalRating)
         {
             Title = title;
             Description = description;
@@ -19,6 +19,7 @@ namespace GerenciadorLivros.application.ViewModel
             PublishedYear = publishedYear;
             PagesQuantity = pagesQuantity;
             Avaliations = avaliations;
+            TotalRating = totalRating;
         }
 
         public string Title { get; private set; }
@@ -34,5 +35,6 @@ namespace GerenciadorLivros.application.ViewModel
         public int PublishedYear { get; private set; }
         public int PagesQuantity { get; private set; }
         public List<Avaliation> Avaliations { get; private set; }
+        public decimal TotalRating { get; private set; }
     }
 }

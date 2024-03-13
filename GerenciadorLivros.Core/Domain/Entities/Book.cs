@@ -44,15 +44,17 @@ namespace GerenciadorLivros.Domain.Entitites
             CreatedDate = DateTime.Now;
             Avaliations = new List<Avaliation>();
             IsDeleted = false;
+            TotalRating = 0;
         }
         public void Update(string description)
         {
             Description = description;
         }
-        public void CreateAvaliation(int rating,string description,Guid userId)
+        public void CreateAvaliation(int rating, string description, Guid userId,DateTime startedDate,DateTime finishedDate)
         {
-            var Avaliation=new Avaliation(rating,description,userId,Id);
+            var Avaliation = new Avaliation(rating, description, userId, Id,startedDate,finishedDate);
             Avaliations.Add(Avaliation);
+            TotalRating=((decimal)Avaliations.Select(a => a.Rating).Average());
         }
         public void Delete()
         {

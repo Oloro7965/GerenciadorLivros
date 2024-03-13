@@ -32,7 +32,7 @@ namespace GerenciadorLivros.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post( NewBookInputModel createBookModel)
+        public IActionResult Post(NewBookInputModel createBookModel)
         {
             var bookId=_bookService.Create(createBookModel);
             return CreatedAtAction(nameof(GetById), new { id = bookId }, createBookModel);
