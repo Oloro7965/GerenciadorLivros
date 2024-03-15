@@ -30,5 +30,10 @@
             StartedDate = startedDate;
             FinishedDate = finishedDate;
         }
+        public void UpdateAvaliation(string description,int rating)
+        {
+            Description = description;
+            Rating = rating;
+        }
     }
 }

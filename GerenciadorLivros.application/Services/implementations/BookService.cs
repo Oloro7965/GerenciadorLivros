@@ -6,6 +6,7 @@ using GerenciadorLivros.intraestructure.Persistance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,6 +32,13 @@ namespace GerenciadorLivros.application.Services.implementations
                 AvaliationInputModel.UserId,BookId,AvaliationInputModel.StartedDate,AvaliationInputModel.FinishedDate);
             var book = _dbContext.Books.SingleOrDefault(b=>b.Id==BookId);
             book.CreateAvaliation(avaliation.Rating,avaliation.Description,avaliation.UserId,avaliation.StartedDate,avaliation.FinishedDate);
+            return avaliation.Id;
+        }
+        public Guid UpdateAvaliation(Guid BookId, AvaliationUpdateInputModel Model)
+        {
+            var book = _dbContext.Books.SingleOrDefault(b => b.Id == BookId);
+            var avaliation = book.Avaliations.SingleOrDefault(a => a.Id == Model.Id);
+            avaliation.UpdateAvaliation(Model.Description, Model.Rating);
             return avaliation.Id;
         }
         public void Delete(Guid id)
