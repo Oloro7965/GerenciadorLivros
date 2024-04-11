@@ -15,6 +15,7 @@ namespace GerenciadorLivros.application.Services.interfaces
         Guid Create(NewBookInputModel BookInputModel);
         Guid CreateAvaliation(Guid BookId,NewAvaliationInputModel AvaliationInputModel);
         void Update(BookUpdateInputModel UpdateBookModel);
+        Guid UpdateAvaliation(Guid BookId, AvaliationUpdateInputModel Model);
         void Delete(Guid id);
     }
 }

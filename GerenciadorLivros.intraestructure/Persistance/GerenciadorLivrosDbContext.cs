@@ -1,22 +1,28 @@
 ﻿using GerenciadorLivros.Domain.Entitites;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GerenciadorLivros.intraestructure.Persistance
 {
-    public class GerenciadorLivrosDbContext
+    public class GerenciadorLivrosDbContext:DbContext
     {
-        public List<User> Users { get; set; }
-        public List<Avaliation> Avaliations { get; set; }
-        public List<Book> Books { get; set; }
-        public GerenciadorLivrosDbContext() { 
-            Users = new List<User>();
-            Avaliations = new List<Avaliation>();
-            Books = new List<Book>();
-        } 
+        public DbSet<User> Users { get; set; }
+        public DbSet<Avaliation> Avaliations { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public GerenciadorLivrosDbContext(DbContextOptions<GerenciadorLivrosDbContext> options):base(options) 
+        { 
+            
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+        
     }
 }

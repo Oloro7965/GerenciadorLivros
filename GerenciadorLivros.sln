@@ -5,11 +5,11 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GerenciadorLivros.API", "GerenciadorLivros\GerenciadorLivros.API.csproj", "{F407A12C-8675-4AF9-B761-C6763911C542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorLivros.intraestructure", "GerenciadorLivros.intraestructure\GerenciadorLivros.intraestructure.csproj", "{854F4163-62C7-40DD-AB53-CF7A06791425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GerenciadorLivros.infraestructure", "GerenciadorLivros.intraestructure\GerenciadorLivros.infraestructure.csproj", "{854F4163-62C7-40DD-AB53-CF7A06791425}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorLivros.Core", "GerenciadorLivros.Core\GerenciadorLivros.Core.csproj", "{EEC5C823-2842-45A9-8C33-844894DD4723}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GerenciadorLivros.Core", "GerenciadorLivros.Core\GerenciadorLivros.Core.csproj", "{EEC5C823-2842-45A9-8C33-844894DD4723}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciadorLivros.application", "GerenciadorLivros.application\GerenciadorLivros.application.csproj", "{8D2DA533-1DB8-4573-93D4-1B395A56BA28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GerenciadorLivros.application", "GerenciadorLivros.application\GerenciadorLivros.application.csproj", "{8D2DA533-1DB8-4573-93D4-1B395A56BA28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

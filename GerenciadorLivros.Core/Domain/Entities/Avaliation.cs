@@ -17,6 +17,8 @@
         public DateTime StartedDate { get;private set; }
 
         public DateTime FinishedDate { get;private set; }
+        public User user { get; private set; }
+        public Book book { get;private set; }
 
         public Avaliation() { }
         public Avaliation(int rating, string description, Guid userId, Guid bookId,DateTime startedDate,DateTime finishedDate)

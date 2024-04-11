@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="9.5.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.28">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GerenciadorLivros.intraestructure\GerenciadorLivros.intraestructure.csproj" />
+    <ProjectReference Include="..\GerenciadorLivros.intraestructure\GerenciadorLivros.infraestructure.csproj" />
   </ItemGroup>
 
 </Project>
